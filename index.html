@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Labs Puppies - AKC Labrador Retriever Breeder | Healthy, Happy Labs</title>
+    <meta name="description" content="Sweet Labs Puppies specializes in breeding healthy, AKC-registered Labrador Retrievers. 20+ years experience, health guarantees, and lifetime breeder support.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #D97706;
+            --primary-dark: #B45309;
+            --background: #FDF8F3;
+            --card-bg: #FEFBF6;
+            --text: #292524;
+            --text-light: #57534E;
+            --text-muted: #78716C;
+            --border: #E7E5E4;
+            --accent: #FED7AA;
+            --nav-height: 4rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background-color: var(--background);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Helper Class for Centering */
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- Navigation Bar Styles (Scrolls with page) --- */
+        .navbar {
+            position: static; 
+            width: 100%;
+            height: var(--nav-height);
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: none;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* Desktop styles for navigation */
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+                flex-direction: row;
+            }
+            
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        /* Mobile Menu Overlay/Dropdown */
+        .nav-menu.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: var(--nav-height); 
+            left: 0;
+            width: 100%;
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-menu.active li {
+            padding: 0.5rem 0;
+        }
+        
+        .nav-menu.active a {
+            display: block;
+            padding: 0.5rem 1rem;
+            font-size: 1.125rem;
+        }
+        /* --- End Navigation Bar Styles --- */
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Stable Unsplash URL for the Hero background */
+            background: url('https://images.unsplash.com/photo-1543466835-ef56cfdf4c34?q=80&w=2000&auto=format&fit=crop') center/cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 5rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1.25rem, 4vw, 2rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .badge {
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 9999px;
+            font-size: 1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+
+        /* --- Puppies Table Styles --- */
+        .puppies-table {
+            width: 100%;
+            max-width: 900px;
+            margin: 4rem auto 0;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .puppies-table th, 
+        .puppies-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .puppies-table th {
+            background-color: var(--accent);
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .puppies-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .puppy-name-cell {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--primary-dark);
+        }
+        
+        .puppy-desc-cell {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .color-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #FEEBC3; /* Lighter accent */
+            color: var(--text);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        /* Responsive adjustments for the table */
+        @media (max-width: 768px) {
+            .puppies-table thead {
+                display: none; /* Hide header on mobile */
+            }
+
+            .puppies-table, .puppies-table tbody, .puppies-table tr, .puppies-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .puppies-table tr {
+                margin-bottom: 1rem;
+                border: 1px solid var(--border);
+                border-radius: 0.5rem;
+                background-color: var(--card-bg);
+            }
+
+            .puppies-table td {
+                text-align: right;
+                position: relative;
+                padding-left: 50%;
+                border-bottom: 1px dashed var(--border);
+            }
+
+            .puppies-table td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 1rem;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: 600;
+                color: var(--primary-dark);
+            }
+            
+            .puppies-table td:last-child {
+                border-bottom: none;
+                text-align: center;
+                padding-left: 1rem;
+            }
+            
+            /* FIX: Hide the data-label for the Inquire column to prevent duplicate buttons */
+            .puppies-table td[data-label="Inquire"]:before {
+                content: none; 
+            }
+        }
+        /* --- End Puppies Table Styles --- */
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                /* On desktop, remove centering for left/right alignment */
+                .about-content {
+                    text-align: left;
+                }
+            }
+        }
+
+        .about-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Ensure text paragraphs are centered when .about-content is centered (mobile/small screen) */
+        .about-content p {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            max-width: 600px; /* Limit width of text for readability */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Stats centering fix */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 0.75rem;
+            object-fit: cover;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto 1.5rem;
+            background: rgba(217, 119, 6, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+        }
+
+        /* Promise Section */
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .promise-item {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .check-icon {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: rgba(217, 119, 6, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-top: 0.25rem;
+        }
+
+        .promise-text {
+            font-size: 1.125rem;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: relative; /* Needed for quote icon positioning */
+        }
+        
+        .quote-icon-top {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--accent);
+            /* Styling for the new feather icon */
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+        }
+        
+        .quote-icon-top i {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+
+        .testimonial-header {
+            /* Stacks author block vertically */
+            display: flex;
+            flex-direction: column; 
+            gap: 0.5rem; 
+            align-items: center; 
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .testimonial-avatar {
+            /* Hides the space for the avatar image, as requested */
+            display: none; 
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 0.5rem; 
+        }
+
+        .testimonial-author {
+             /* Author block contains name and location */
+        }
+
+        .testimonial-author h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-location {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-top: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-textarea {
+            min-height: 8rem;
+            resize: vertical;
+        }
+
+        .contact-info-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-info-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info-item a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info-item a:hover {
+            color: var(--primary);
+        }
+
+        .social-card {
+            background: rgba(217, 119, 6, 0.05);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            /* FIX: Center all content within the footer sections */
+            text-align: center; 
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Ensure badges in footer are centered by letting the flex container center itself */
+        .footer-section .badges {
+            justify-content: center;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center; /* Center the form input/button group */
+        }
+        
+        /* Small adjustment to keep newsletter form readable/functional */
+        @media (max-width: 400px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            max-width: 250px; /* Constrain width for centering */
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .bg-muted {
+            background-color: #FAF9F7;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            padding: 1rem;
+            background: #D1FAE5;
+            color: #065F46;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo">Sweet Lab Puppies</a>
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <i data-feather="menu" width="24" height="24"></i>
+            </button>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#puppies">Available Puppies</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary btn-small">Inquire Now</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>Sweet Lab Puppies</h1>
+            <p>Bringing Joy Home, One Lab at a Time</p>
+            
+            <div class="badges">
+                <span class="badge">AKC Registered</span>
+                <span class="badge">Health Guaranteed</span>
+                <span class="badge">10+ Years Experience</span>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#puppies" class="btn btn-primary">View Available Puppies</a>
+                <a href="#about" class="btn btn-outline">Learn About Our Breeding</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="puppies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Available Puppies</h2>
+                <p>Meet our adorable Labrador Retriever puppies, ready to join their forever homes</p>
+            </div>
+
+            <table class="puppies-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Color</th>
+                        <th>Age/Gender</th>
+                        <th>Description</th>
+                        <th>Inquire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Name" class="puppy-name-cell">Ranger</td>
+                        <td data-label="Color"><span class="color-badge">Yellow</span></td>
+                        <td data-label="Age/Gender">9 weeks / Male</td>
+                        <td data-label="Description" class="puppy-desc-cell">Confident and gentle, loves outdoor play.</td>
+                        <td data-label="Inquire">
+                            <a href="#contact" class="btn btn-primary btn-small">Inquire About Ranger</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Name" class="puppy-name-cell">Cocoa</td>
+                        <td data-label="Color"><span class="color-badge">Chocolate</span></td>
+                        <td data-label="Age/Gender">8 weeks / Female</td>
+                        <td data-label="Description" class="puppy-desc-cell">Snuggly and sweet, perfect for family cuddles.</td>
+                        <td data-label="Inquire">
+                            <a href="#contact" class="btn btn-primary btn-small">Inquire About Cocoa</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Name" class="puppy-name-cell">Shadow</td>
+                        <td data-label="Color"><span class="color-badge">Black</span></td>
+                        <td data-label="Age/Gender">8 weeks / Male</td>
+                        <td data-label="Description" class="puppy-desc-cell">Intelligent and eager to please, a future athlete.</td>
+                        <td data-label="Inquire">
+                            <a href="#contact" class="btn btn-primary btn-small">Inquire About Shadow</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Name" class="puppy-name-cell">Daisy</td>
+                        <td data-label="Color"><span class="color-badge">Yellow</span></td>
+                        <td data-label="Age/Gender">9 weeks / Female</td>
+                        <td data-label="Description" class="puppy-desc-cell">A gentle soul, very affectionate and calm.</td>
+                        <td data-label="Inquire">
+                            <a href="#contact" class="btn btn-primary btn-small">Inquire About Daisy</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Name" class="puppy-name-cell">Jinx</td>
+                        <td data-label="Color"><span class="color-badge">Black</span></td>
+                        <td data-label="Age/Gender">8 weeks / Male</td>
+                        <td data-label="Description" class="puppy-desc-cell">Curious and playful, full of spirit and energy.</td>
+                        <td data-label="Inquire">
+                            <a href="#contact" class="btn btn-primary btn-small">Inquire About Jinx</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Name" class="puppy-name-cell">Bowzer</td>
+                        <td data-label="Color"><span class="color-badge">Fox Red</span></td>
+                        <td data-label="Age/Gender">9 weeks / Male</td>
+                        <td data-label="Description" class="puppy-desc-cell">A handsome gentleman with a charming personality.</td>
+                        <td data-label="Inquire">
+                            <a href="#contact" class="btn btn-primary btn-small">Inquire About Bowzer</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="about" class="bg-muted">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content text-center"> 
+                    <h2>About Our Breeding Program</h2>
+                    <p>Welcome to Sweet Lab Puppies, where we've been dedicated to breeding exceptional Labrador Retrievers for over 20 years. Our passion for this wonderful breed drives everything we do.</p>
+                    <p>We specialize exclusively in Labrador Retrievers, focusing on health, temperament, and conformation to breed standards. Every puppy is AKC registered and comes from champion bloodlines with health-tested parents.</p>
+                    <p>Our puppies are raised in our home with love and attention, ensuring they're well-socialized and ready to become cherished family members. We provide lifetime support to all our puppy families because your success is our success.</p>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">10+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">100+</div>
+                            <div class="stat-label">Happy Families</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1574845012353-06e12e039401?q=80&w=600&auto=format&fit=crop" alt="Breeder with Labrador puppies" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Labrador Retrievers?</h2>
+                <p>Discover why Labs are America's most beloved family companion</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Family Friendly</h3>
+                    <p>Labs are gentle, patient, and loving with children of all ages, making them perfect family companions.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Intelligent & Trainable</h3>
+                    <p>Highly intelligent and eager to please, Labs excel in training and love learning new things.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Loyal Companions</h3>
+                    <p>Labs form deep bonds with their families and are known for their unwavering loyalty and affection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-muted">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Promise to You</h2>
+            </div>
+
+            <div class="promise-grid">
+                <div class="promise-item">
+                    <div class="check-icon">✓</div>
+                    <p class="promise-text">2-year health guarantee on all puppies</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check-icon">✓</div>
+                    <p class="promise-text">Comprehensive puppy socialization program</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check-icon">✓</div>
+                    <p class="promise-text">Lifetime breeder support and guidance</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check-icon">✓</div>
+                    <p class="promise-text">Transparent breeding practices and records</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check-icon">✓</div>
+                    <p class="promise-text">AKC registration and champion bloodlines</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check-icon">✓</div>
+                    <p class="promise-text">Early neurological stimulation for puppies</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check-icon">✓</div>
+                    <p class="promise-text">Health testing for all breeding dogs</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check-icon">✓</div>
+                    <p class="promise-text">Puppy starter kit and training resources</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Happy Families</h2>
+                <p>Hear from families who found their perfect companion</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon-top">
+                        <i data-feather="message-square"></i>
+                    </div>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"></div>
+                        <div class="testimonial-author">
+                            <h4>The Johnson Family</h4>
+                            <p class="testimonial-location">Portland, OR</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">"We got our sweet Lucy from Sweet Labs Puppies two years ago and she has brought so much joy to our family. The breeder was professional, caring, and provided excellent support throughout."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon-top">
+                        <i data-feather="message-square"></i>
+                    </div>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"></div>
+                        <div class="testimonial-author">
+                            <h4>Sarah & Mike</h4>
+                            <p class="testimonial-location">Seattle, WA</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">"Our Lab puppy from Sweet Labs is everything we hoped for - healthy, well-socialized, and incredibly smart. The breeding program is top-notch and the lifetime support is invaluable."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-muted">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to Welcome a Sweet Lab?</h2>
+                <p>Get in touch to learn more about our available puppies and adoption process</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Send Us a Message</h3>
+                    
+                    <div id="successMessage" class="success-message">
+                        Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                    </div>
+
+                    <form action="https://formsubmit.co/your-email@gmail.com" method="POST" id="contactForm">
+                        <input type="hidden" name="_subject" value="New Puppy Inquiry from Sweet Lab Website">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone (Optional)</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about your family and what you're looking for in a Labrador puppy..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+
+                <div>
+                    <div class="contact-card">
+                        <h3>Contact Information</h3>
+                        <div class="contact-info-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>whatsapp</h4>
+                                <a href="tel:‪+16262989206‬">‪(626) 298‑9206‬</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:info@sweetlabspuppies.com">info@sweetlabspuppies.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Location</h4>
+                                <p style="color: var(--text-muted);">Pacific Northwest, USA<br><small>Visits by appointment only</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-card">
+                        <h3>Follow Our Journey</h3>
+                        <p style="color: var(--text-muted);">See our latest puppies and family updates on social media</p>
+                        <div class="social-buttons">
+                            <a href="https://facebook.com/sweetlabpuppies" target="_blank" class="btn btn-outline btn-small" style="flex: 1;">Facebook</a>
+                            <a href="https://instagram.com" target="_blank" class="btn btn-outline btn-small" style="flex: 1;">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Sweet Lab Puppies</h3>
+                    <p>Premium Labrador Retriever breeder dedicated to raising healthy, happy puppies with exceptional temperaments.</p>
+                    <div class="badges">
+                        <span class="badge" style="font-size: 0.75rem; padding: 0.25rem 0.75rem;">AKC Registered</span>
+                        <span class="badge" style="font-size: 0.75rem; padding: 0.25rem 0.75rem;">Since 2004</span>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#puppies">Available Puppies</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Get updates on new litters and puppy care tips</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" class="newsletter-input">
+                        <button type="submit" class="btn btn-primary btn-small">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Sweet Lab Puppies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // 🐶 Navigation Bar Toggle Script 
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const menuIcon = menuToggle.querySelector('i');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            
+            // Toggle icon from 'menu' to 'x' (close)
+            if (navMenu.classList.contains('active')) {
+                menuIcon.setAttribute('data-feather', 'x');
+                feather.replace();
+            } else {
+                menuIcon.setAttribute('data-feather', 'menu');
+                feather.replace();
+            }
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Close mobile menu after clicking a link
+                    if (navMenu.classList.contains('active')) {
+                         navMenu.classList.remove('active');
+                         menuIcon.setAttribute('data-feather', 'menu');
+                         feather.replace();
+                    }
+                    
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Handle form submission (show success message)
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        // Optional: Show success message before FormSubmit redirect
+        contactForm.addEventListener('submit', function() {
+            successMessage.classList.add('show');
+        });
+
+        // Newsletter form handler
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing! You\'ll receive updates about our puppies.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
